@@ -19,20 +19,34 @@ public class Driver {
 		List<Student> studentArrayList = new ArrayList<>();
 		MyLinkedList<Student> studentLinkedList = new MyLinkedList<>();
 		
-		generateStudents(20, studentArrayList);
+		//generateStudents(20, studentArrayList);
 		generateStudents(20, studentLinkedList);
 		
 		//Determine which data structure is fastest for each
 		//operation. Complete the action
-		
+
 		//Delete the first, if any, Student with the last name of "Smith"
+		deleteSmith(studentLinkedList);
 		
 		//Change the name of the 3rd entry to "Joe Montana"
+		studentArrayList.set(3,new Student("Joe","Montana",3.50));
 		
 		//Remove the 10th element
+		studentLinkedList.remove(10);
 	}
 	
 	//To generate the ArrayList
+
+	private static void deleteSmith(MyLinkedList<Student> studentList){
+		int indexOfSmith = 0;
+		for (int i = 0; i < lastNames.length ; i++) {
+			if(lastNames[i].equals("Smith")){
+				indexOfSmith = i;
+			}
+		}
+		studentList.remove(indexOfSmith);
+	}
+
 	private static void generateStudents(int numberOfStudents, List<Student> outList) {
 		Random random = new Random();
 		
